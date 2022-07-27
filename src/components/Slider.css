@@ -1,0 +1,80 @@
+:root {
+  --no-of-slides-per-screen: 4;
+  --slide-index: 0;
+}
+.header-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.progress-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 1rem;
+}
+.progress {
+  width: 25px;
+  height: 10px;
+  background-color: rgb(161 161 161 / 50%);
+}
+.progress-bar-container .active {
+  background-color: rgba(161 161 161 / 1);
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+.slides {
+  display: flex;
+  height: 100%;
+  transform: translate(calc(-100% * var(--slide-index)));
+  transition: transform 1000ms ease-in-out;
+  gap: 0.5rem;
+}
+.slides > img {
+  object-fit: cover;
+  flex-basis: calc(100% / var(--no-of-slides-per-screen));
+  max-width: calc(100% / var(--no-of-slides-per-screen));
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.handle {
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 6%;
+  z-index: 2;
+}
+.previous {
+  top: 0;
+  left: 0;
+}
+.next {
+  top: 0;
+  right: 0;
+}
+.handle-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #a1a1a180;
+}
+.previous img {
+  transform: rotateY(-180deg);
+}
+.handle-icon img {
+  width: 100%;
+}
+.handle-icon img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.previous img:hover {
+  transform: scale(1.2) rotateY(-180deg);
+}
